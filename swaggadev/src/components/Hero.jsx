@@ -1,16 +1,5 @@
 import { useState } from 'react';
-import { SiReact, SiTypescript, SiNodedotjs, SiPython, SiDocker, SiPostgresql } from 'react-icons/si';
-import ScrollFloat from './ScrollFloat';
 import Silk from './Silk';
-
-const skills = [
-  { name: 'React', icon: SiReact, color: '#61DAFB' },
-  { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
-  { name: 'Node.js', icon: SiNodedotjs, color: '#68A063' },
-  { name: 'Python', icon: SiPython, color: '#3776AB' },
-  { name: 'Docker', icon: SiDocker, color: '#2496ED' },
-  { name: 'PostgreSQL', icon: SiPostgresql, color: '#336791' },
-];
 
 export default function Hero() {
   const myName = "SWAGGA";
@@ -68,38 +57,7 @@ export default function Hero() {
         </a>
       </div>
     </section>
-
-    {/* Skills Section */}
-    <section id="skills" className="min-h-screen py-20 px-6 relative bg-opacity-0 z-10">
-      <div className="max-w-6xl mx-auto">
-        <ScrollFloat
-          stagger={0.04}
-          duration={2.3}
-          containerClassName="text-center mb-16"
-          textClassName="gradient-text-gold"
-        >
-          My Skills
-        </ScrollFloat>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {skills.map((skill) => (
-            <div
-              key={skill.name}
-              className="flex flex-col items-center p-6 rounded-lg bg-gray-900/50 backdrop-blur border border-gray-800 hover:border-gray-600 transition-all duration-300 hover:bg-gray-900/80 hover:shadow-lg cursor-pointer"
-            >
-              <skill.icon 
-                size={48} 
-                color={skill.color}
-                className="mb-3 hover:scale-110 transition-transform duration-300"
-              />
-              <p className="text-sm font-medium text-gray-300 text-center hover:text-gray-100 transition-colors">
-                {skill.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
     </>
   );
 }
+

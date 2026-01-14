@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ScrollFloat({
+const ScrollFloat = ({
   children,
   scrollContainerRef,
   containerClassName = '',
@@ -14,17 +14,17 @@ export default function ScrollFloat({
   scrollStart = 'center bottom+=50%',
   scrollEnd = 'bottom bottom-=40%',
   stagger = 0.03
-}) {
+}) => {
   const containerRef = useRef(null);
 
   const splitText = useMemo(() => {
     const text = typeof children === 'string' ? children : '';
     return text.split('').map((char, index) => (
-      <span className="inline-block word" key={index}>
+      <span className={`inline-block word ${textClassName}`} key={index}>
         {char === ' ' ? '\u00A0' : char}
       </span>
     ));
-  }, [children]);
+  }, [children, textClassName]);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -65,7 +65,9 @@ export default function ScrollFloat({
 
   return (
     <h2 ref={containerRef} className={`my-5 overflow-hidden ${containerClassName}`}>
-      <span className={`inline-block text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] ${textClassName}`}>{splitText}</span>
+      <span className="inline-block text-[clamp(1.6rem,4vw,3rem)] leading-[1.5]">{splitText}</span>
     </h2>
   );
-}
+};
+
+export default ScrollFloat;

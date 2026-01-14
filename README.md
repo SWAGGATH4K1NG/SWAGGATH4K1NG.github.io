@@ -36,4 +36,4 @@ Depois copia `build/*` para a raiz do repo e faz push.
 
 ---
 
-**Desenvolvido por Swagg** | 2026
+**Desenvolvido por SWAGGA** | 2026
