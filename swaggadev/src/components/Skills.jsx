@@ -19,7 +19,7 @@ export default function Skills() {
           duration={2.3}
           stagger={0.04}
           containerClassName="text-center mb-20"
-          textClassName="gradient-text-gold text-6xl md:text-7xl lg:text-8xl font-black"
+          textClassName="gradient-text-gold text-4xl md:text-5xl lg:text-6xl font-black"
         >
           My Skills
         </ScrollFloat>
