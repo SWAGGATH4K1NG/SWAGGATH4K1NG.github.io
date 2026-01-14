@@ -116,7 +116,8 @@ const Silk = ({ speed = 5, scale = 1, color = '#7B7481', noiseIntensity = 1.5, r
         left: 0,
         width: '100%',
         height: '100%',
-        zIndex: 0
+        zIndex: 0,
+        pointerEvents: 'none'
       }}
     >
       <SilkPlane ref={meshRef} uniforms={uniforms} />

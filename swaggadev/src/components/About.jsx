@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 bg-dark-900/50">
+    <section id="about" className="py-24 px-6 relative z-10">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-5xl font-bold gradient-text mb-8">Sobre Mim</h2>
         
@@ -10,19 +10,19 @@ export default function About() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-dark-800 p-6 rounded-lg border border-dark-700 hover:border-emerald-400 transition-colors">
-            <h3 className="text-emerald-400 font-bold mb-2">Frontend</h3>
-            <p className="text-gray-400">React, Tailwind CSS, JavaScript</p>
+          <div className="p-6 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors bg-opacity-0">
+            <h3 className="text-amber-400 font-bold mb-2">Frontend</h3>
+            <p className="text-gray-300">React, Tailwind CSS, JavaScript</p>
           </div>
 
-          <div className="bg-dark-800 p-6 rounded-lg border border-dark-700 hover:border-emerald-400 transition-colors">
-            <h3 className="text-emerald-400 font-bold mb-2">Backend</h3>
-            <p className="text-gray-400">Node.js, APIs REST</p>
+          <div className="p-6 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors bg-opacity-0">
+            <h3 className="text-amber-400 font-bold mb-2">Backend</h3>
+            <p className="text-gray-300">Node.js, APIs REST</p>
           </div>
 
-          <div className="bg-dark-800 p-6 rounded-lg border border-dark-700 hover:border-emerald-400 transition-colors">
-            <h3 className="text-emerald-400 font-bold mb-2">Tools</h3>
-            <p className="text-gray-400">Git, NPM</p>
+          <div className="p-6 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors bg-opacity-0">
+            <h3 className="text-amber-400 font-bold mb-2">Tools</h3>
+            <p className="text-gray-300">Git, NPM</p>
           </div>
         </div>
       </div>

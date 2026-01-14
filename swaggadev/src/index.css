@@ -61,6 +61,10 @@
     @apply bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent;
   }
 
+  .gradient-text-gold {
+    @apply bg-gradient-to-r from-amber-400 to-gray-400 bg-clip-text text-transparent;
+  }
+
   .cta-button {
     @apply inline-block px-8 py-3 bg-gradient-to-r from-emerald-400 to-cyan-400 text-dark-950 font-bold rounded-full transition-all hover:scale-105 hover:shadow-lg hover:shadow-emerald-400/50 cursor-pointer;
   }
