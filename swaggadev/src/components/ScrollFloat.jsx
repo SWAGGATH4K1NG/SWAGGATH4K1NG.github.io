@@ -9,7 +9,7 @@ export default function ScrollFloat({
   scrollContainerRef,
   containerClassName = '',
   textClassName = '',
-  animationDuration = 1,
+  duration = 1,
   ease = 'back.inOut(2)',
   scrollStart = 'center bottom+=50%',
   scrollEnd = 'bottom bottom-=40%',
@@ -45,7 +45,7 @@ export default function ScrollFloat({
         transformOrigin: '50% 0%'
       },
       {
-        duration: animationDuration,
+        duration: duration,
         ease: ease,
         opacity: 1,
         yPercent: 0,
@@ -61,7 +61,7 @@ export default function ScrollFloat({
         }
       }
     );
-  }, [scrollContainerRef, animationDuration, ease, scrollStart, scrollEnd, stagger]);
+  }, [scrollContainerRef, duration, ease, scrollStart, scrollEnd, stagger]);
 
   return (
     <h2 ref={containerRef} className={`my-5 overflow-hidden ${containerClassName}`}>
