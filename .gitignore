@@ -16,7 +16,7 @@ pnpm-lock.yaml
 
 # ============ Next.js ============
 /.next/
-/out/
+# /out/  ← Comentado! Precisamos do out/ para GitHub Pages
 .next/
 
 # ============ Build & Production ============
