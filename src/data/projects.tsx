@@ -1,5 +1,6 @@
 import AceTernityLogo from "@/components/logos/aceternity";
 import SlideShow from "@/components/slide-show";
+import VideoPlayer from "@/components/video-player";
 import { Button } from "@/components/ui/button";
 import { TypographyH3, TypographyP } from "@/components/ui/typography";
 import { ArrowUpRight, ExternalLink, Link2, MoveUpRight } from "lucide-react";
@@ -9,9 +10,11 @@ import { ReactNode } from "react";
 import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
 import {
   SiChakraui,
+  SiSwift,
   SiDocker,
   SiExpress,
   SiFirebase,
+  SiIonic,
   SiJavascript,
   SiMongodb,
   SiPostgresql,
@@ -222,6 +225,24 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <SiSupabase />,
   },
+  swift: {
+    title: "Swift",
+    bg: "black",
+    fg: "white",
+    icon: <SiSwift />,
+  },
+  ionic: {
+    title: "Ionic",
+    bg: "black",
+    fg: "white",
+    icon: <SiIonic />,
+  },
+  java: {
+    title: "Java",
+    bg: "black",
+    fg: "white",
+    icon: <span className="font-bold text-lg">☕</span>,
+  },
 };
 export type Project = {
   id: string;
@@ -307,24 +328,57 @@ const projects: Project[] = [
     },
   },
   {
-    id: "project-2",
-    category: "Coming soon",
-    title: "Project 2",
-    src: "/assets/projects-screenshots/placeholder.png",
-    screenshots: [],
+    id: "pawplace",
+    category: "iOS App",
+    title: "PawPlace",
+    src: "/assets/projects-screenshots/Pawplace/1.png",
+    screenshots: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"],
     live: "#",
     skills: {
-      frontend: [],
-      backend: [],
+      frontend: [PROJECT_SKILLS.swift],
+      backend: [PROJECT_SKILLS.firebase],
     },
-    get content(): JSX.Element {
+    get content() {
       return (
         <div>
-          <TypographyP className="font-mono text-center text-xl">
-            🚀 Projeto em construção...
+          <TypographyP className="font-mono text-2xl text-center">
+            Connect Rescue Animals with Loving Homes
           </TypographyP>
-          <p className="font-mono text-center">
-            Adicione a descrição e detalhes deste projeto aqui.
+          <TypographyP className="font-mono">
+            PawPlace is a native iOS application built with SwiftUI that connects abandoned and rescue animals with potential adopters. With a modern and user-friendly interface, the app makes it easy to discover and adopt animals while offering favorites, notifications, and a complete authentication system.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <TypographyH3 className="my-4 mt-8">Animal Discovery</TypographyH3>
+          <p className="font-mono mb-2">
+            Browse through a paginated list of rescue animals with advanced filters by type (dogs, cats, and more). View detailed profiles with photos, descriptions, and adoption requirements.
+          </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/Pawplace/1.png`,
+              `${BASE_PATH}/Pawplace/2.png`,
+              `${BASE_PATH}/Pawplace/3.png`,
+              `${BASE_PATH}/Pawplace/4.png`,
+              `${BASE_PATH}/Pawplace/5.png`,
+              `${BASE_PATH}/Pawplace/6.png`,
+              `${BASE_PATH}/Pawplace/7.png`,
+            ]}
+            maxHeight="500px"
+          />
+          <TypographyH3 className="my-4 mt-8">Favorites & Bookmarks</TypographyH3>
+          <p className="font-mono mb-2">
+            Mark your favorite animals and save them for later. Organize your bookmarks and easily revisit animals you&apos;re interested in adopting.
+          </p>
+          <TypographyH3 className="my-4 mt-8">Push Notifications</TypographyH3>
+          <p className="font-mono mb-2">
+            Receive real-time alerts about newly available rescue animals that match your preferences. Stay updated on adoption opportunities in your area.
+          </p>
+          <TypographyH3 className="my-4 mt-8">Secure Authentication</TypographyH3>
+          <p className="font-mono mb-2">
+            Sign up and log in securely with Firebase Authentication. Manage your profile, preferences, and adoption history all in one place.
+          </p>
+          <TypographyH3 className="my-4 mt-8">User Profile & Achievements</TypographyH3>
+          <p className="font-mono mb-2">
+            Track your adoption journey with a personalized profile. Earn achievements and badges as you explore and learn about rescue animals.
           </p>
         </div>
       );
@@ -332,96 +386,159 @@ const projects: Project[] = [
   },
   {
     id: "project-3",
-    category: "Coming soon",
-    title: "Project 3",
-    src: "/assets/projects-screenshots/placeholder.png",
-    screenshots: [],
+    category: "Weather App",
+    title: "Weather Forecast",
+    src: "/assets/projects-screenshots/WeatherApp/opera_69GXdc8o5M.png",
+    screenshots: ["opera_69GXdc8o5M.png", "opera_ArmeYFVLef.png", "opera_Jk3YwlMWI6.png", "opera_xQzmoPfKN0.png"],
     live: "#",
     skills: {
-      frontend: [],
-      backend: [],
+      frontend: [PROJECT_SKILLS.ionic, PROJECT_SKILLS.ts],
+      backend: [PROJECT_SKILLS.node, PROJECT_SKILLS.express, PROJECT_SKILLS.mongo],
     },
-    get content(): JSX.Element {
+    get content() {
       return (
         <div>
-          <TypographyP className="font-mono text-center text-xl">
-            🚀 Projeto em construção...
+          <TypographyP className="font-mono text-2xl text-center">
+            Real-time Weather Forecasts at Your Fingertips
           </TypographyP>
-          <p className="font-mono text-center">
-            Adicione a descrição e detalhes deste projeto aqui.
+          <TypographyP className="font-mono">
+            Weather Forecast is a cross-platform Ionic application that provides real-time weather information by integrating with the WeatherAPI and OpenWeatherMap APIs. Users can search for weather by city, save favorites, check air quality, and access detailed 5-day forecasts with a custom backend for personalized user settings and feedback.
+          </TypographyP>
+          <ProjectsLinks live={this.live} />
+          <TypographyH3 className="my-4 mt-8">Current Weather & Forecasts</TypographyH3>
+          <p className="font-mono mb-2">
+            Get real-time weather information for any city including temperature, humidity, wind speed, and atmospheric pressure. Access detailed 5-day forecasts to plan ahead.
+          </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/WeatherApp/opera_69GXdc8o5M.png`,
+              `${BASE_PATH}/WeatherApp/opera_ArmeYFVLef.png`,
+              `${BASE_PATH}/WeatherApp/opera_Jk3YwlMWI6.png`,
+              `${BASE_PATH}/WeatherApp/opera_xQzmoPfKN0.png`,
+            ]}
+            maxHeight="500px"
+          />
+          <TypographyH3 className="my-4 mt-8">Air Quality Monitoring</TypographyH3>
+          <p className="font-mono mb-2">
+            Monitor air pollution levels and air quality index (AQI) for any location. Get health recommendations based on current air quality conditions.
+          </p>
+          <TypographyH3 className="my-4 mt-8">Favorite Cities</TypographyH3>
+          <p className="font-mono mb-2">
+            Save your favorite cities for quick access. Manage your favorites and get instant weather updates for locations that matter to you.
+          </p>
+          <TypographyH3 className="my-4 mt-8">User Preferences & Settings</TypographyH3>
+          <p className="font-mono mb-2">
+            Customize your experience with personalized settings including temperature units (Celsius/Fahrenheit), theme preferences, and notification settings.
+          </p>
+          <TypographyH3 className="my-4 mt-8">User Feedback System</TypographyH3>
+          <p className="font-mono mb-2">
+            Share your feedback and suggestions directly from the app. Help us improve the weather forecasting experience with your valuable insights.
           </p>
         </div>
       );
     },
   },
   {
-    id: "project-4",
-    category: "Coming soon",
-    title: "Project 4",
-    src: "/assets/projects-screenshots/placeholder.png",
-    screenshots: [],
-    live: "#",
+    id: "ludoria",
+    category: "Android App",
+    title: "Ludoria",
+    src: "/assets/projects-screenshots/Ludoria/image.png",
+    screenshots: ["Vídeo WhatsApp 2025-04-08 às 17.31.32_d79dbe1a.mp4"],
+    live: "https://gitlab.com/swagga/ludoria",
+    github: "https://gitlab.com/swagga/ludoria",
     skills: {
-      frontend: [],
+      frontend: [PROJECT_SKILLS.java],
       backend: [],
     },
-    get content(): JSX.Element {
+    get content() {
       return (
         <div>
-          <TypographyP className="font-mono text-center text-xl">
-            🚀 Projeto em construção...
+          <TypographyP className="font-mono text-2xl text-center">
+            Your Ultimate Gaming Companion
           </TypographyP>
-          <p className="font-mono text-center">
-            Adicione a descrição e detalhes deste projeto aqui.
+          <TypographyP className="font-mono">
+            Ludoria is an Android application developed for gaming enthusiasts, offering a comprehensive platform to discover new games, track achievements, and manage wishlist. Designed to be responsive across mobile devices and tablets, the app follows Material Design guidelines for a modern and intuitive user experience.
+          </TypographyP>
+          <ProjectsLinks live={this.live} repo={this.github} />
+          <TypographyH3 className="my-4 mt-8">Game Discovery</TypographyH3>
+          <p className="font-mono mb-2">
+            Explore new releases, special offers, and featured games. Browse through a curated collection of games with detailed descriptions, ratings, and reviews.
+          </p>
+          <VideoPlayer
+            videoSrc={`${BASE_PATH}/Ludoria/Ludoria.mp4`}
+            maxHeight="500px"
+          />
+          <TypographyH3 className="my-4 mt-8">Achievement System</TypographyH3>
+          <p className="font-mono mb-2">
+            Track your gaming progress and achievements within the app. Unlock badges and milestones as you explore different games and complete challenges.
+          </p>
+          <TypographyH3 className="my-4 mt-8">Wishlist Management</TypographyH3>
+          <p className="font-mono mb-2">
+            Add games to your wishlist and manage your preferences. Keep track of games you want to play and get notified about price drops and special offers.
+          </p>
+          <TypographyH3 className="my-4 mt-8">Social Integration</TypographyH3>
+          <p className="font-mono mb-2">
+            Share your achievements and favorite games with friends on social media. Connect with other gamers and discuss your gaming experiences.
+          </p>
+          <TypographyH3 className="my-4 mt-8">Responsive Design</TypographyH3>
+          <p className="font-mono mb-2">
+            Optimized interface for both mobile devices and tablets. Experience seamless gameplay across different screen sizes with Material Design principles.
           </p>
         </div>
       );
     },
   },
   {
-    id: "project-5",
-    category: "Coming soon",
-    title: "Project 5",
-    src: "/assets/projects-screenshots/placeholder.png",
-    screenshots: [],
+    id: "techbooks",
+    category: "Book Library",
+    title: "TechBooks",
+    src: "/assets/projects-screenshots/techbooks/opera_gOzvNKCRLh.png",
+    screenshots: ["opera_gOzvNKCRLh.png", "opera_Pw87NsZpDv.png"],
     live: "#",
     skills: {
-      frontend: [],
+      frontend: [PROJECT_SKILLS.js, PROJECT_SKILLS.ts],
       backend: [],
     },
-    get content(): JSX.Element {
+    get content() {
       return (
         <div>
-          <TypographyP className="font-mono text-center text-xl">
-            🚀 Projeto em construção...
+          <TypographyP className="font-mono text-2xl text-center">
+            Free Knowledge, Accessible to Everyone
           </TypographyP>
-          <p className="font-mono text-center">
-            Adicione a descrição e detalhes deste projeto aqui.
-          </p>
-        </div>
-      );
-    },
-  },
-  {
-    id: "project-6",
-    category: "Coming soon",
-    title: "Project 6",
-    src: "/assets/projects-screenshots/placeholder.png",
-    screenshots: [],
-    live: "#",
-    skills: {
-      frontend: [],
-      backend: [],
-    },
-    get content(): JSX.Element {
-      return (
-        <div>
-          <TypographyP className="font-mono text-center text-xl">
-            🚀 Projeto em construção...
+          <TypographyP className="font-mono">
+            TechBooks is an educational, non-profit platform dedicated to providing free access to technical books and learning materials. This project embodies the principle that knowledge should be freely accessible to students and self-learners worldwide.
           </TypographyP>
-          <p className="font-mono text-center">
-            Adicione a descrição e detalhes deste projeto aqui.
+          <TypographyP className="font-mono bg-slate-900 p-4 rounded-lg my-4">
+            <strong>⚖️ Educational & Non-Profit Mission</strong><br />
+            This website is 100% educational and non-profit. Built to help students and self-learners access knowledge freely and easily. All books listed here are property of their respective authors and publishers. We do not claim copyright on any shared materials.
+          </TypographyP>
+          <ProjectsLinks live={this.live} />
+          <TypographyH3 className="my-4 mt-8">Free Book Access</TypographyH3>
+          <p className="font-mono mb-2">
+            Browse and access a curated collection of technical books covering programming, web development, data science, and more. All resources are provided freely to support education.
           </p>
+          <SlideShow
+            images={[
+              `${BASE_PATH}/techbooks/opera_gOzvNKCRLh.png`,
+              `${BASE_PATH}/techbooks/opera_Pw87NsZpDv.png`,
+            ]}
+            maxHeight="500px"
+          />
+          <TypographyH3 className="my-4 mt-8">Supporting Authors & Creators</TypographyH3>
+          <p className="font-mono mb-2">
+            We believe these works exist because of authors&apos; hard work, dedication, and generosity. If you&apos;re able, please consider purchasing the originals to support the creators behind the knowledge.
+          </p>
+          <TypographyH3 className="my-4 mt-8">No Monetization</TypographyH3>
+          <p className="font-mono mb-2">
+            This platform does not earn any money from the content. No ads, no affiliate links, no monetization — only free access to learning resources.
+          </p>
+          <TypographyH3 className="my-4 mt-8">Copyright Respect & DMCA</TypographyH3>
+          <p className="font-mono mb-2">
+            We respect copyright holders completely. Content removal requests are handled within 24 hours. We believe in dialogue over legal battles — communication is always the best path forward.
+          </p>
+          <TypographyP className="font-mono text-sm mt-6 italic text-slate-400">
+            Status: Em Desenvolvimento (Development features and user scripts being refined)
+          </TypographyP>
         </div>
       );
     },

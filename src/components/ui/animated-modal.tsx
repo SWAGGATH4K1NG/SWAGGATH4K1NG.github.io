@@ -69,24 +69,44 @@ export const ModalBody = ({
   className?: string;
 }) => {
   const { open } = useModal();
+  const { setOpen } = useModal();
 
+  // Fechar com ESC
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") setOpen(false);
-      });
-    }
-  }, []);
+    if (!open) return;
+    
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [open, setOpen]);
+
+  // Desativar scroll do body quando modal está aberto
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
+    if (!open) return;
+
+    // Função para prevenir scroll APENAS fora do modal
+    const preventScroll = (e: WheelEvent) => {
+      // Se o clique for dentro do modal, deixa o scroll acontecer
+      if (modalRef.current && (modalRef.current as HTMLElement).contains(e.target as Node)) {
+        return;
+      }
+      // Se for fora, previne
+      e.preventDefault();
+    };
+
+    document.addEventListener("wheel", preventScroll, { passive: false });
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("wheel", preventScroll);
       document.body.style.overflow = "auto";
-    }
+    };
   }, [open]);
 
   const modalRef = useRef(null);
-  const { setOpen } = useModal();
   useOutsideClick(modalRef, () => setOpen(false));
 
   return (
@@ -104,7 +124,7 @@ export const ModalBody = ({
             opacity: 0,
             backdropFilter: "blur(0px)",
           }}
-          className="modall fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full  flex items-center justify-center z-50"
+          className="modall fixed [perspective:800px] [transform-style:preserve-3d] inset-0 h-full w-full  flex items-center justify-center z-50 overflow-hidden"
         >
           <Overlay />
 
@@ -138,7 +158,7 @@ export const ModalBody = ({
             }}
           >
             <CloseIcon />
-            <ScrollArea className="h-[80dvh] w-full rounded-md border">
+            <ScrollArea className="h-[80dvh] w-full rounded-md border overflow-hidden">
               {children}
             </ScrollArea>
           </motion.div>
@@ -196,7 +216,7 @@ const Overlay = ({ className }: { className?: string }) => {
         opacity: 0,
         backdropFilter: "blur(0px)",
       }}
-      className={`modal-overlay fixed inset-0 h-full w-full bg-black bg-opacity-50 z-50 ${className}`}
+      className={`modal-overlay fixed inset-0 h-full w-full bg-black bg-opacity-50 z-50 pointer-events-auto ${className}`}
       onClick={() => setOpen(false)}
     ></motion.div>
   );

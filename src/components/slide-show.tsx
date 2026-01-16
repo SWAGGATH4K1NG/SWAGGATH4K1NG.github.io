@@ -17,7 +17,7 @@ import { Button } from "./ui/button";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
-const SlideShow = ({ images }: { images: string[] }) => {
+const SlideShow = ({ images, maxHeight }: { images: string[]; maxHeight?: string }) => {
   const [hovering, setHovering] = useState(false);
   return (
     <Splide
@@ -33,7 +33,7 @@ const SlideShow = ({ images }: { images: string[] }) => {
     >
       <SplideTrack>
         {images.map((image, idx) => (
-          <SplideSlide key={idx} className="flex items-center">
+          <SplideSlide key={idx} className="flex items-center justify-center">
             <Dialog>
               <DialogTrigger
                 className="relative"
@@ -45,7 +45,8 @@ const SlideShow = ({ images }: { images: string[] }) => {
                   alt="screenshot"
                   width={1000}
                   height={1000}
-                  className="w-full rounded-lg h-auto"
+                  className="rounded-lg object-contain"
+                  style={{ maxHeight: maxHeight || "auto", width: "auto", height: "auto" }}
                 />
                 <AnimatePresence>
                   {hovering && (

@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import {
   Modal,
   ModalBody,
   ModalContent,
   ModalFooter,
   ModalTrigger,
+  useModal,
 } from "../ui/animated-modal";
 import { FloatingDock } from "../ui/floating-dock";
 import Link from "next/link";
@@ -17,6 +18,20 @@ import { cn } from "@/lib/utils";
 import { SectionHeader } from "./section-header";
 
 import SectionWrapper from "../ui/section-wrapper";
+
+// Componente separado para o botão Cancel (precisa estar dentro do Modal para usar useModal)
+const CancelButton = () => {
+  const { setOpen } = useModal();
+  return (
+    <button 
+      onClick={() => setOpen(false)}
+      className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28"
+    >
+      Cancel
+    </button>
+  );
+};
+
 
 const ProjectsSection = () => {
   return (
@@ -30,6 +45,7 @@ const ProjectsSection = () => {
     </SectionWrapper>
   );
 };
+
 const Modall = ({ project }: { project: Project }) => {
   return (
     <div className="flex items-center justify-center">
@@ -63,9 +79,7 @@ const Modall = ({ project }: { project: Project }) => {
             </ModalContent>
           </SmoothScroll>
           <ModalFooter className="gap-4">
-            <button className="px-2 py-1 bg-gray-200 text-black dark:bg-black dark:border-black dark:text-white border border-gray-300 rounded-md text-sm w-28">
-              Cancel
-            </button>
+            <CancelButton />
             <Link href={project.live} target="_blank">
               <button className="bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28">
                 Visit
