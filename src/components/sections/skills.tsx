@@ -1,5 +1,5 @@
 import SectionWrapper from "../ui/section-wrapper";
-import { SectionHeader } from "./section-header";
+import { SkillsSectionHeader } from "./skills-section-header";
 import { SKILLS } from "@/data/constants";
 import Image from "next/image";
 import {
@@ -14,8 +14,8 @@ const SkillsSection = () => {
   const learningSkills = skillsList.filter(s => s.level === "learning");
 
   return (
-    <SectionWrapper id="skills" className="w-full min-h-screen py-20 pointer-events-auto">
-      <SectionHeader id='skills' title="Tech Stack" desc="Technologies I work with" />
+    <SectionWrapper id="skills" className="w-full min-h-screen py-20 pointer-events-auto sticky">
+      <SkillsSectionHeader id='skills' title="Tech Stack" desc="Technologies I work with " />
       
       {/* PROFICIENT SKILLS */}
       <div className="mt-16 px-4 max-w-6xl mx-auto">
