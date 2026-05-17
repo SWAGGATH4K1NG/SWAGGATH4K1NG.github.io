@@ -3,6 +3,7 @@ import { Inter, Archivo_Black } from "next/font/google";
 import "./globals.css";
 import { config } from "@/data/config";
 
+
 import Header from "@/components/header/header";
 import Footer from "@/components/footer/footer";
 import Script from "next/script";
@@ -61,8 +62,8 @@ export default function RootLayout({
       <head>
         <Script
           defer
-          src={process.env.UMAMI_DOMAIN}
-          data-website-id={process.env.UMAMI_SITE_ID}
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "22e09253e094446ebd79a7a4329785dc"}'
         ></Script>
         {/* <Analytics /> */}
       </head>
