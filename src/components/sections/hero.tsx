@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/tooltip";
 import { BlurIn, BoxReveal } from "../reveal-animations";
 import ScrollDownIcon from "../scroll-down-icon";
-import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
+import { SiGithub, SiX } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa6";
 import { config } from "@/data/config";
 
 import SectionWrapper from "../ui/section-wrapper";
@@ -67,7 +68,7 @@ const HeroSection = () => {
                       "cursor-default font-display sm:text-xl md:text-xl whitespace-nowrap bg-clip-text "
                     )}
                   >
-                    A Full Stack Junior Web/Mobile Developer
+                    A Full Stack Web/Mobile Developer
                   </p>
                 </BlurIn>
               </div>
@@ -136,7 +137,7 @@ const HeroSection = () => {
                       className="cursor-can-hover"
                     >
                       <Button variant={"outline"}>
-                        <SiLinkedin size={24} />
+                        <FaLinkedin size={24} />
                       </Button>
                     </Link>
                   </div>

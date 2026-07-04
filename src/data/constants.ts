@@ -405,11 +405,39 @@ export const EXPERIENCE: Experience[] = [
       SkillNames.NEXTJS,
     ],
   },
-  {
+   {
     id: 2,
-    startDate: "Feb 2025",
+    startDate: "Feb 2026",
+    endDate: "June 2026",
+    title: "Full-Stack Developer Intern & Technical Team Lead",
+    company: "Microsoft startup FashableAI",
+    description: [
+      "Led a team of 3 software engineering interns, providing technical guidance, code reviews, branch management and merge approvals throughout the internship.",
+      "Developed and delivered full-stack features using Next.js, React, TypeScript and FastAPI.",
+      "Contributed to the design and implementation of AI-powered products, including content generation tools, avatar/persona creation systems and autonomous AI agents.",
+      "Designed and implemented a platform-wide logging and observability system, improving monitoring, debugging and production traceability.",
+      "Maintained high client satisfaction through effective communication and support.",
+      "Collaborated closely with senior engineers, product teams and stakeholders in an agile Scrum environment.",
+      "Participated in DevOps and CI/CD workflows, deployment pipelines and release validation processes."
+    ],
+    skills: [
+      SkillNames.REACT,
+      SkillNames.NEXTJS,
+      SkillNames.PYTHON,
+      SkillNames.TS,
+      SkillNames.DOCKER,
+      SkillNames.GIT,
+      SkillNames.GITHUB,
+      SkillNames.AWS,
+      SkillNames.CLOUDFLARE,
+
+    ],
+  },
+  {
+    id: 3,
+    startDate: "Feb 2026",
     endDate: "...",
-    title: "Freelance Full Stack Junior Developer",
+    title: "Freelance Full Stack Developer",
     company: "Independent Projects",
     description: [
       "Delivered custom web solutions for diverse clients across various industries.",
@@ -418,7 +446,7 @@ export const EXPERIENCE: Experience[] = [
       "Maintained high client satisfaction through effective communication and support.",
     ],
     skills: [
-      SkillNames.REACT,
+      SkillNames.REACT, SkillNames.NEXTJS, SkillNames.TAILWIND, SkillNames.NODEJS, SkillNames.MONGODB,
 
     ],
   },
